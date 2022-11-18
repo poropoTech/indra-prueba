@@ -2,6 +2,12 @@
 
 ## Por poropo
 
+##
+
+## Para iniciar el PROYECTO
+El proyecto ha sido desarrollado en Vue, con instalar las dependecias ya debería funcionar
+
+
 Siguiendo unas instrucciones se realizará la programación de una aplicación single-page
 
 
@@ -49,33 +55,43 @@ Requerimientos:
 URL: ​/podcast/{podcastId}
 Requerimientos:
 ● Se debe mostrar una barra lateral con la imagen del podcast, su título, su autor y su descripción.
+
 ● Se debe mostrar una sección principal donde se visualizará el número de episodios que actualmente tiene el podcast así como un listado de los mismos indicando su título, fecha de publicación y duración.
+
 ● Una vez obtenido el detalle de un podcast desde el servicio externo por primera vez, se deberá almacenar en cliente de manera que solo se vuelva a solicitar si ha pasado un día desde la última vez que se solicitó.
+
 ● Al pulsar sobre el título de un episodio se deberá navegar a la vista con el detalle del mismo.
-6
+
+
 
   DESCRIPCIÓN DE LAS VISTAS Detalle de un episodio
 URL: ​/podcast/{podcastId}/episode/{episodeId}
 Requerimientos:
+
 ● Se debe mostrar la misma barra lateral que en la vista anterior.
-○ Tanto la imagen como el título del podcast y el autor deben ser enlaces a
-la vista con el detalle del podcast (s​ e permite que estos componentes
+
+○ Tanto la imagen como el título del podcast y el autor deben ser enlaces a la vista con el detalle del podcast (s​ e permite que estos componentes
+
 también tengan los mismos enlaces en la vista anterior​).
-● Se debe mostrar una sección principal donde se visualizará el título del
-podcast, su descripción y un reproductor de audio básico (nativo HTML5) para reproducir el podcast.
+● Se debe mostrar una sección principal donde se visualizará el título del podcast, su descripción y un reproductor de audio básico (nativo HTML5) para reproducir el podcast.
+
 ○ Se deberá tener en cuenta que algunas descripciones de episodios contienen HTML y este se debe mostrar interpretado (no escapado).
-7
+
 
    DESCRIPCIÓN DE LAS VISTAS Cabecera
 Requerimientos:
+
 ● El título de la aplicación deberá actuar como enlace a la vista principal de la aplicación.
 ● Cada vez que se inicie una navegación en cliente se debe mostrar algún tipo de indicador visual en la esquina superior derecha de la página para reflejar que el proceso está en marcha. Dicho indicador deberá desaparecer tras finalizar la transición a la nueva vista.
-8
+
 
   RECURSOS
 ● La URL para obtener el listado de los 100 podcasts más populares es la siguiente:
+
 https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json
+
 ● La URL para obtener el detalle de un podcast es la siguiente​: https:// itunes.apple.com/lookup?id={​ podcastId}
+
 ● Servicios para poder acceder a recursos externos que no proveen ​JSONP ​ni cabecerasC​ ORS:
 ○ https://cors-anywhere.herokuapp.com/ ○ https://allorigins.win/
 9

@@ -1,17 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="">
+      <Cabezera/>
+      <CargadorGeneral v-if="false"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+// cabezera
+import Cabezera from './components/Cabezera.vue'
+// cargador de la app inicial
+import CargadorGeneral from './components/cargador/General.vue'
+// router
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Cabezera,
+    CargadorGeneral
+  },
+  data(){
+    return {
+      name: 'alex'
+    }
   }
 }
+
 </script>
 
 <style>
@@ -21,6 +35,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
