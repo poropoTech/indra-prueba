@@ -42,37 +42,37 @@ export default {
   width: 8px;
   height: 4px;
   background: #151924;
-  animation: loaderMini 1.5s ease-in-out infinite;
+  animation: loaderMini 0.5s ease-in-out infinite;
   margin: 0 2px;
   border-radius: 0.5rem;
 }
 
 #loaderMini span:nth-child(2){
-    animation-delay: .15s;
+    animation-delay: .07s;
 }
 
 #loaderMini span:nth-child(3){
-    animation-delay: .3s;
+    animation-delay: .1s;
 }
 
 #loaderMini span:nth-child(4){
-    animation-delay: .45s;
+    animation-delay: .12s;
 }
 
 #loaderMini span:nth-child(5){
-    animation-delay: .6s;
+    animation-delay: .15s;
 }
 
 #loaderMini span:nth-child(6){
-    animation-delay: 0.75s;
+    animation-delay: 0.18;
 }
 
 #loaderMini span:nth-child(7){
-    animation-delay: 0.9s;
+    animation-delay: 0.45s;
 }
 
 #loaderMini span:nth-child(8){
-    animation-delay: 1.05s;
+    animation-delay: 0.5s;
 }
 
 #loaderMini span:nth-child(9){
@@ -80,16 +80,16 @@ export default {
 }
 
 #loaderMini span:nth-child(9){
-    animation-delay: 1.35s;
+    animation-delay: 0.65s;
 }
 #loaderMini span:nth-child(10){
-    animation-delay: 1.5s;
+    animation-delay: 0.74s;
 }
 #loaderMini span:nth-child(11){
-    animation-delay: 1.65s;
+    animation-delay: 0.82s;
 }
 #loaderMini span:nth-child(12){
-    animation-delay: 1.8s;
+    animation-delay: 0.8s;
 }
 #loaderMini span:nth-child(13){
     animation-delay: 1.95s;

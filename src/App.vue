@@ -1,7 +1,13 @@
 <template>
-  <div class="">
+  <div>
+      <CargadorGeneral v-if="this.$store.state.loading"/>
+
       <Cabezera/>
-      <CargadorGeneral v-if="false"/>
+
+      <router-view />
+
+
+
   </div>
 </template>
 
@@ -19,10 +25,35 @@ export default {
     Cabezera,
     CargadorGeneral
   },
-  data(){
-    return {
-      name: 'alex'
+  mounted() {
+    this.loadData()
+  },
+  methods: {
+    // carga los datos
+    loadData() {
+
+      // this.$store.state.loading = true
+
+      if(!this.hasData())
+        this.requestData()
+
+      if(!this.dataLessDanADay())
+        this.requestData()
+
+    },
+    // Nos dice si hay datos
+    hasData() {
+
+    },
+    // nos dice si los datos tienen menos de 24 h
+    dataLessDanADay() {
+
+    },
+    // solicita datos a la api
+    requestData() {
+
     }
+
   }
 }
 

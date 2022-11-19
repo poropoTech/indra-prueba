@@ -1,9 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="">Podcaster</a>
-    
-    <Mini/>
+    <router-link
+      :to="{
+        name: 'Inicio'
+        }">
+    Podcaster
+  </router-link>
+    <Mini v-if="this.$store.state.loadingPart"/>
   </div>
 </nav>
 </template>
