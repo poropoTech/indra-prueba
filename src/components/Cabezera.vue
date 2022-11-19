@@ -2,6 +2,7 @@
   <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <router-link
+      class="brand"
       :to="{
         name: 'Inicio'
         }">

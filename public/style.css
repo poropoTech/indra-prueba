@@ -1,4 +1,6 @@
-
+:root {
+  --azul: #0090d1;
+}
 nav {
   height: 80px;
 }
@@ -8,12 +10,16 @@ article {
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: grid;
+  padding-bottom: 20px;
   transition: all 0.4s ease;
+
 }
 
 article > * {
   width: 100%;
   margin: auto;
+  text-decoration: none;
+
 }
 article img {
   width: 60%;
@@ -21,6 +27,9 @@ article img {
   margin-top: -30%;
   transition: all 0.4s ease;
 
+}
+.badge {
+  background: var(--azul);
 }
 article:hover > img{
   width: 60%;
@@ -38,8 +47,13 @@ article:hover > img{
   margin-right: 0 !important;
 }
 
+
 article>span {
   padding: 5px 3px;
+}
+.containPodcast * {
+  color: inherit !important;
+  text-decoration: inherit !important;
 }
 .containPodcast>div {
   margin-top: 60px;
@@ -47,4 +61,10 @@ article>span {
 #app {
   padding-bottom: 30vh;
 
+}
+.brand {
+  font-weight: 900;
+  color: var(--azul) !important;
+  text-decoration: inherit !important;
+  font-size: 1.4rem;
 }
