@@ -4,7 +4,8 @@ import App from './App.vue'
 import router from "./router";
 // store
 import { createStore } from 'vuex'
-
+// cookies
+import cookies from 'vue-cookies'
 
 
 
@@ -13,7 +14,7 @@ const store = createStore({
   state () {
     return {
       // loading: indica cuando está cargando toda la página
-      loading: false,
+      loading: true,
       // loadingPart: indica cuando está cargando algun recurso
       loadingPart: true,
       // error: si hubiese algun error mostrar un alert
@@ -24,7 +25,7 @@ const store = createStore({
       podcasts: [],
       // base de la url api
       apiBase: "https://itunes.apple.com/us/rss/"
-
+      
 
     }
   }
@@ -36,5 +37,8 @@ const app = createApp(App)
 app.use(store)
 // router
 app.use(router);
+// cookies
+app.use(cookies);
+
 // montamos
 app.mount('#app')

@@ -27,14 +27,13 @@
 
       </div>
 
-      <h4 class="mt-5" v-if="filteredPodcasts().length == 0">Parece que no se han encontrado resultados</h4>
+      <h4 class="mt-5" v-if="!this.$store.state.loadingPart && filteredPodcasts().length == 0">Parece que no se han encontrado resultados</h4>
 
     </div>
   </div>
 </template>
 
 <script>
-import axios  from 'axios';
 
 export default {
   name: 'Inicio',
@@ -44,52 +43,18 @@ export default {
     }
   },
   created() {
-    this.$store.state.loadingPart = true
-    this.loadData()
+
   },
   methods: {
-    // carga los datos
-    loadData() {
 
 
-
-      if(!this.hasData() || !this.dataLessDanADay())
-        this.requestData()
-
-
-      // this.$store.state.loadingPart = false
-
-    },
-    // Nos dice si hay datos
-    hasData() {
-
-    },
-    // nos dice si los datos tienen menos de 24 h
-    dataLessDanADay() {
-
-    },
-    // solicita datos a la api
-    requestData() {
-      axios
-      .get(this.$store.state.apiBase+'toppodcasts/limit=100/genre=1310/json')
-      .then(response => {
-        console.log(response)
-        this.$store.state.podcasts = response.data.feed.entry
-      })
-      .catch(error => {
-        console.log(error)
-        this.errored = true
-      })
-      .finally(() => {
-        // this.$store.state.loadingPart = false
-
-      })
-    },
     filteredPodcasts() {
-      return this.$store.state.podcasts.filter(podcast => {
-
-         return podcast['im:name'].label.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || podcast['im:artist'].label.toLowerCase().indexOf(this.search.toLowerCase()) > -1
-      })
+      if(this.$store.state.podcasts)
+        return this.$store.state.podcasts.filter(podcast => {
+           return podcast['im:name'].label.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || podcast['im:artist'].label.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+        })
+      else
+        return
     }
 
   }

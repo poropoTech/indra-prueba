@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 // Componentes
 import Home from '@/components/Home.vue'
 import Podcast from '@/components/Podcast.vue'
+import Episode from '@/components/Episode.vue'
 
 
 // rutas
@@ -15,7 +16,13 @@ const routes = [
     path: "/podcast/:podcast_id",
     name: "Podcast",
     component: Podcast,
-  }
+    children: [
+      {
+        path: 'episode/:episode_id', component: Episode,
+        name: "Episode"
+      },
+    ]
+  },
 ]
 
 // creamos router
