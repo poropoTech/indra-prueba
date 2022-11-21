@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 // Componentes
 import Home from '@/components/Home.vue'
-import Podcast from '@/components/Podcast.vue'
-import Episode from '@/components/Episode.vue'
+import Podcast from '@/components/podcast/Podcast.vue'
+import Episode from '@/components/podcast/Episode.vue'
+import Episodes from '@/components/podcast/Episodes.vue'
 
 
 // rutas
@@ -13,14 +14,18 @@ const routes = [
     component: Home,
   },
   {
-    path: "/podcast/:podcast_id",
+    path: "/podcast",
     name: "Podcast",
     component: Podcast,
     children: [
       {
+        path: ':podcast_id', component: Episodes,
+        name: "Episodes"
+      },
+      {
         path: 'episode/:episode_id', component: Episode,
         name: "Episode"
-      },
+      }
     ]
   },
 ]

@@ -1,14 +1,18 @@
 <template>
   <div>
+
       <CargadorGeneral v-if="this.$store.state.loading"/>
+
+      <div v-if="this.$store.state.error" class="alert alert-danger">
+        <strong> ¡Ep! </strong>
+        Parece que hay algun error que no estamos manejando  😅
+      </div>
 
       <Cabezera/>
 
       <router-view v-if="!this.$store.state.loading" />
 
-      <div class="alert alert-danger">
-        <strong>Ep! Parece que hay algun error que no estamos manejando </strong>
-      </div>
+
 
 
   </div>
@@ -22,6 +26,8 @@ import Cabezera from './components/Cabezera.vue'
 import CargadorGeneral from './components/cargador/General.vue'
 // axios
 import axios  from 'axios';
+//
+import '@/assets/style.css';
 
 
 export default {
