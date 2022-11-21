@@ -112,7 +112,7 @@ export default {
     },
     // pide los detalles del podcast - Solución propuesta en documentación
     requestData() {
-      console.log('SOLICITA DATOS')
+      // console.log('SOLICITA DATOS')
       var route ='https://itunes.apple.com/lookup?id='+this.podcast_id
       fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(route)}`)
       .then(response => {
@@ -157,8 +157,6 @@ export default {
       for (var i = 0; i < items.length; i++) {
         var entry = {}
         for (var child of items[i].childNodes) {
-          // console.log(child.tagName,child.innerHTML)
-
           if(child.tagName == 'title')
             entry.title = child.innerHTML
           if(child.tagName == 'itunes:duration')

@@ -42,7 +42,6 @@ export default {
         if(episode.id == this.$route.params.episode_id)
           this.episode = episode
       });
-      console.log(this.episode.url)
       this.$store.state.loadingPart = false;
 
     }

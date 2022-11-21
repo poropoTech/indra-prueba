@@ -76,7 +76,6 @@ export default {
       axios
       .get(this.$store.state.apiBase+'toppodcasts/limit=100/genre=1310/json')
       .then(response => {
-        console.log(response)
         this.$store.state.podcasts = response.data.feed.entry
         this.saveInLocal(response.data.feed.entry)
       })
