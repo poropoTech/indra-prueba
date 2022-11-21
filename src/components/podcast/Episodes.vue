@@ -29,7 +29,8 @@
                       episode_id: episode.id+'',
                       podcast_id: this.$route.params.podcast_id
                     }
-                  }">
+                  }" class="episodeLink"
+>
 
                   {{episode.title}}
 

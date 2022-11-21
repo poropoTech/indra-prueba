@@ -117,6 +117,9 @@ article>span {
 #app {
   margin-top: 100px;
 }
+.episodeLink {
+  text-decoration: none;
+}
 .navbar {
   position: fixed;
   width: 100%;
