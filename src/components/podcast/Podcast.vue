@@ -21,13 +21,13 @@
         <div class="text-left description">
           <b>Description</b>
           <p>{{podcast['summary']['label']}}</p>
-          {{podcast}}
         </div>
       </div>
       <!-- Esta columna carga info consultada -->
       <div class="col-sm-9 ">
         <router-view
           class="detailedEpisodes"
+          v-if="!this.$store.state.loadingPart"
           :episodes="this.episodes"
           />
       </div>
@@ -155,9 +155,10 @@ export default {
       var xmlDoc = parser.parseFromString(data,"text/xml");
       var items = xmlDoc.getElementsByTagName('item');
       for (var i = 0; i < items.length; i++) {
-        console.log(items[i].childNodes);
         var entry = {}
         for (var child of items[i].childNodes) {
+          console.log(child.tagName)
+
           if(child.tagName == 'title')
             entry.title = child.innerHTML
           if(child.tagName == 'itunes:duration')
@@ -171,7 +172,6 @@ export default {
         }
         list.push(entry)
       }
-      console.log(list)
       return list;
     },
     // Guardamos los datos en storage Local

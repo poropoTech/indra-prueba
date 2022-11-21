@@ -9,35 +9,34 @@
     </div>
 
     <!-- EPISODIOS -->
-    <div class="row">
+    <div class="row mt-4">
       <div class="col-12 cuadro">
-        <table class="table table-striped">
+        <table class="table table-striped text-left " id="listEpisodes">
           <thead>
             <tr>
               <th scope="col">Title</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Date</th>
+              <th scope="col">Duration</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+            <tr v-for="episode in this.episodes"  :key="episode.id">
+              <td>
+                <router-link
+                  :to="{
+                    name: 'Episode',
+                    params: {
+                      episode_id: episode.title,
+                      podcast_id: this.$route.params.podcast_id
+                    }
+                  }">
+
+                  {{episode.title}}
+
+                </router-link>
+              </td>
+              <td>{{episode.pubDate}}</td>
+              <td>{{episode.duration}}</td>
             </tr>
           </tbody>
         </table>
@@ -50,6 +49,20 @@
 <script>
 export default {
   name: 'Episodes',
-  props: ['episodes']
+  props: ['episodes'],
+  mounted() {
+    this.adaptData()
+  },
+  methods: {
+    adaptData() {
+      this.episodes.forEach((episode) => {
+        episode.pubDate = this.formatDate(new Date(episode.pubDate))
+      });
+    },
+    formatDate(date) {
+      return date.getDate() + "-"+ date.getMonth()+ "-" +date.getFullYear();
+    }
+  }
+
 }
 </script>

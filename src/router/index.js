@@ -23,7 +23,7 @@ const routes = [
         name: "Episodes"
       },
       {
-        path: 'episode/:episode_id', component: Episode,
+        path: ':podcast_id/episode/:episode_id', component: Episode,
         name: "Episode"
       }
     ]

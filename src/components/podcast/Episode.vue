@@ -9,6 +9,7 @@
 
 export default {
   name: 'Episode',
+  props: ['episode'],
   data() {
     return {
       search: '',
