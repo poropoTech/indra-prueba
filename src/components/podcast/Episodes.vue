@@ -36,7 +36,7 @@
 
                 </router-link>
               </td>
-              <td>{{episode.pubDate}}</td>
+              <td>{{this.adaptData(episode.pubDate)}}</td>
               <td>{{episode.duration}}</td>
             </tr>
           </tbody>
@@ -51,14 +51,12 @@
 export default {
   name: 'Episodes',
   props: ['episodes'],
-  created() {
+  beforeMount() {
     this.adaptData()
   },
   methods: {
-    adaptData() {
-      this.episodes.forEach((episode) => {
-        episode.pubDate = this.formatDate(new Date(episode.pubDate))
-      });
+    adaptData(date) {
+      return this.formatDate(new Date(date))
     },
     formatDate(date) {
       return date.getDate() + "-"+ date.getMonth()+ "-" +date.getFullYear();
