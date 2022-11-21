@@ -1,7 +1,19 @@
 <template>
-  <div class="container">
-    <h1>Episode</h1>
+  <div class="">
+    <div class="row">
+      <div v-if="!this.$store.state.loadingPart" class="col-12 cuadro text-left p-3">
+        <h6>{{episode.title}}</h6>
+        <p v-html="episode.content"></p>
+        <div v-html="episode.media"></div>
+        <div id="reproductor" class="">
+          <audio class="audio" controls controlsList="noplaybackrate nodownload">
+            <source :src="episode.url" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -9,11 +21,32 @@
 
 export default {
   name: 'Episode',
-  props: ['episode'],
+  props: ['episodes'],
   data() {
     return {
-      search: '',
+      episode: null
+    }
+  },
+  beforeCreate() {
+    this.$store.state.loadingPart = true
+  },
+  created() {
+    this.getData()
+  },
+  methods: {
+    // buscamos del store por su id
+    getData() {
+      if(this.$route.params.episode_id == null)
+        this.$store.state.error = true
+      this.episodes.forEach((episode) => {
+        if(episode.id == this.$route.params.episode_id)
+          this.episode = episode
+      });
+      console.log(this.episode.url)
+      this.$store.state.loadingPart = false;
+
     }
   }
+
 }
 </script>

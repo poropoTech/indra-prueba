@@ -14,6 +14,10 @@ article {
   transition: all 0.4s ease;
 
 }
+* {
+  word-wrap: break-word;
+
+}
 
 article > * {
   width: 100%;
@@ -100,6 +104,8 @@ article>span {
 .description p{
   font-size: 0.7rem;
   font-style: italic;
+  word-wrap: break-word;
+
 }
 .detailedEpisodes {
   width: 90%;
@@ -117,4 +123,43 @@ article>span {
   top: 0;
   left: 0;
   box-shadow: -2px 5px 20px 0px rgb(0 0 0 / 0%), 0 6px 20px 0 rgb(41 110 142 / 10%);
+}
+#reproductor audio {
+  width: 100% !important;
+}
+#reproductor audio:after {
+  background: green !important;
+}
+audio::-webkit-media-controls-panel {
+  background: #434343 !important;
+}
+audio::-webkit-media-controls-enclosure {
+  border-radius: 8px;
+}
+audio::-webkit-media-controls-time-remaining-display, audio::-webkit-media-controls-current-time-display {
+  text-shadow: none !important;
+  color:#fff !important;
+}
+audio::-webkit-media-controls-mute-button {
+  color: #grey !important;
+}
+audio::-webkit-media-controls-play-button {
+  /* background-image: url('play.png'); */
+  /* background-image: -internal-light-dark(url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSJXaW5kb3dUZXh0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik04IDV2MTRsMTEtN3oiLz4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KPC9zdmc+)) */
+  filter: invert(1) !important;
+
+  order: -3;
+
+}
+
+audio::-webkit-media-controls-timeline {
+  order: -2
+}
+
+audio::-internal-media-controls-overflow-button, audio::-internal-media-controls-overflow-button, audio::-webkit-media-controls-overflow-button {
+  display: none !important;
+}
+audio::-internal-media-controls-download-button {
+    display:none !important;
+    opacity: 0;
 }

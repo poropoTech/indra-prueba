@@ -26,7 +26,7 @@
                   :to="{
                     name: 'Episode',
                     params: {
-                      episode_id: episode.title,
+                      episode_id: episode.id+'',
                       podcast_id: this.$route.params.podcast_id
                     }
                   }">
@@ -50,7 +50,7 @@
 export default {
   name: 'Episodes',
   props: ['episodes'],
-  mounted() {
+  created() {
     this.adaptData()
   },
   methods: {

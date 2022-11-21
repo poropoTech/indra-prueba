@@ -137,7 +137,6 @@ export default {
           this.$state.error = true;
       })
       .then(data => {
-        console.log('TENEMOS',data.contents)
         this.episodes = this.processData(data.contents);
         this.saveInLocal(JSON.stringify(this.episodes));
 
@@ -154,10 +153,11 @@ export default {
       var parser = new DOMParser();
       var xmlDoc = parser.parseFromString(data,"text/xml");
       var items = xmlDoc.getElementsByTagName('item');
+      var en = 0;
       for (var i = 0; i < items.length; i++) {
         var entry = {}
         for (var child of items[i].childNodes) {
-          console.log(child.tagName)
+          // console.log(child.tagName,child.innerHTML)
 
           if(child.tagName == 'title')
             entry.title = child.innerHTML
@@ -167,9 +167,16 @@ export default {
             entry.pubDate = child.innerHTML
           if(child.tagName == 'content:encoded')
             entry.content = child.innerHTML
-          if(child.tagName == 'media:content')
+          if(child.tagName == 'enclosure') {
+            entry.url = child.getAttribute('url')
             entry.media = child.innerHTML
+          }
+          if(child.tagName == 'itunes:episode')
+            entry.id = child.innerHTML
         }
+        en++;
+        if(entry.id == null || entry.id == undefined)
+          entry.id = en;
         list.push(entry)
       }
       return list;
